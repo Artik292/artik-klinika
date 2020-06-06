@@ -1,0 +1,6 @@
+{
+  "require":{
+    "atk4/data": "*",
+    "atk4/ui": "*"
+  }
+}
