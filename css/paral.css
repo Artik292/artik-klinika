@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+h1,h2,h3,h4,h5,h6,a,p {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+nav {
+
+  top: 0;
+  left: 0;
+  height:60px;
+  background-color: #A83883;
+  display: inline-block;
+  margin:0;
+  padding:0;
+  width: 100%;
+}
+
+ul {
+  width: 100%;
+  position:fixed;
+  top: 0;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+#logo-img {
+  height: 50px;
+  float: left;
+  margin: 5px;
+}
+
+.nav-el {
+  float: left;
+}
+
+.nav-el:last-child {
+  float: right;
+}
+
+.nav-el a{
+  top: 0;
+  display: block;
+  text-align: center;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  transition-property: background-color;
+  transition-duration: 2s;
+}
+
+.nav-el a:hover{
+  background-color: #f056bd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  height: 200vh;
+}
+
+.parallax_image {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.parallax_image:nth-child(1) {
+    background-image: url(../src/fast.jpg);
+}
+
+.parallax_image:nth-child(2) {
+    background-image: url(../src/saf.jpg);
+}
+
+.parallax_image:nth-child(3) {
+    background-image: url(../src/any.jpg);
+}
+
+.parallax_image:nth-child(4) {
+    background-image: url(../src/cheap.jpg);
+}
+
+.parallax_header {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: sans-serif;
+  font-size: 72px;
+  color: #53c57f;
+}

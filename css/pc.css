@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+
+        body {
+          background-color: black;
+          height: 200vh;
+        }
+
+
+        h1,h2,h3,h4,h5,h6,a,p {
+          font-family: 'Ubuntu', sans-serif;
+        }
+
+        h4 {
+          color: white;
+          font-size: 36px;
+        }
+
+        a {
+          text-decoration:none;
+        }
+
+        #menu-logo {
+          display: none;
+        }
+
+        nav {
+          position:fixed;
+          top: 0;
+          left: 0;
+          height:60px;
+          background-color: #A83883;
+          display: inline-block;
+          margin:0;
+          padding:0;
+          width: 100%;
+        }
+
+
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+
+        #logo-img {
+          height: 50px;
+          float: left;
+          margin: 5px;
+        }
+
+        .nav-el {
+          float: left;
+        }
+
+        .nav-el:last-child {
+          float: right;
+        }
+
+        .nav-el a{
+          top: 0;
+          display: block;
+          text-align: center;
+          padding: 12px 25px;
+          color: white;
+          text-decoration: none;
+          font-size: 30px;
+          transition-property: background-color;
+          transition-duration: 2s;
+        }
+
+        .nav-el a:hover{
+          background-color: #f056bd;
+        }
+
+        .par {
+          height: 50vh;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center center;
+          background-size: cover;
+        }
+
+        .par:nth-child(2) {
+            background-image: url(../src/main.jpg);
+        }
+
+
+        .par:nth-child(3) {
+            background-image: url(../src/1.jpg);
+        }
+
+        .par:nth-child(4) {
+            background-image: url(../src/2.jpg);
+        }
+
+        .par:nth-child(5) {
+            background-image: url(../src/3.jpg);
+        }
+
+        .parallax_header {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          font-family: sans-serif;
+          font-size: 72px;
+          color: #53c57f;
+        }
+
+        .main form {
+          margin-left: 200px;
+          margin-top: 100px;
+          margin-bottom: 20px;
+          font-size: 45px;
+          display: inline-block;
+          color: white;
+        }
+
+        .main select {
+          width: 150px;
+          border-radius: 12px;
+          color:white;
+          background-color:#F78E30;
+          font-size: 35px;
+        }
+
+        .main select:hover,#submit {
+          cursor: pointer;
+        }
+
+        .main input:not(#back),#submit {
+          font-size: 25px;
+          background-color: #EF8E38;
+          color: white;
+          border-style: none;
+          border-radius: 5%;
+          align-content: center;
+        }
+
+        #submit {
+          width: 100%;
+          height: 80px;
+          font-size: 50px;
+          text-align: center;
+        }
+
+        .main input:hover {
+          cursor: pointer;
+        }
+
+        .label {
+          display: inline-block;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        .to {
+          margin-left: 110px;
+        }
+
+        .back {
+          margin-top: 30px;
+        }
+
+        #back {
+          height: 50px;
+          width: 50px;
+        }
+
+        #date_back {
+          margin-left: 100px;
+        }
+
+        .list h1 {
+          color: red;
+          margin: 0;
+          padding-top: 5px;
+          text-align: center;
+        }
+
+        .list table {
+          color:red;
+          text-align: center;
+          border-width: medium;
+          border-color: #E9C900;
+          margin-left: auto;
+          margin-right: auto;
+          border: 3px solid red;
+          border-collapse: collapse;
+        }
+
+        .list th {
+          padding-left: 30px;
+          padding-right: 30px;
+          font-size: 40px;
+        }
+
+        .list td,caption {
+          font-size: 40px;
+          font-weight: 600;
+        }
+
+        .list td {
+          cursor: pointer;
+        }
+
+        .selected {
+            background-color: brown;
+            color: #FFF;
+        }
+
+        .sub {
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          font-size: 30px;
+        }
+
+        .sub p:not(#warning),h2 {
+          margin: 0;
+        }
+
+        #warning {
+          display: none;
+          background-color: red;
+          color: black;
+          border: 0;
+          margin: 0;
+        }
+
+        .sub input,button {
+          background-color: #EF8E38;
+          margin-bottom: 20px;
+          border: 0;
+          height: 50px;
+          width: 60%;
+          font-size: 30px;
+        }
