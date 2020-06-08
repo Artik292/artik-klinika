@@ -1,7 +1,6 @@
 <?php
 
 require '../connection.php';
-require '../hash.php';
 
 ?>
 
@@ -28,24 +27,27 @@ require '../hash.php';
            $doctor = new Doctor($db);
            $doctor->tryLoadby("email",$_POST['email']);
 
-           $user = new User($db);
+           $user = new Patient($db);
            $user->tryLoadby("email",$_POST['email']);
 
            if (isset($doctor->id)) {
-                if ($doctor['password'] == $OpensslEncryption->encrypt($_POST['password'], ENCRYPTION_KEY)) {
+                if ($doctor['password'] == hash('sha256',$_POST['password'])) {
                   $_SESSION['id'] = $doctor->id;
+                  header('location: main.php');
                 } else {
                   $msg = 'Wrong e-mail or password';
                 }
            } elseif (isset($user->id)) {
-                if ($user['password'] == $OpensslEncryption->encrypt($_POST['password'], ENCRYPTION_KEY)) {
-                  $_SESSION['īd'] = $user->id;
+                if ($user['password'] == hash('sha256',$_POST['password'])) {
+                  $_SESSION['id'] = $user->id;
+                  header('location: main.php');
                 } else {
                   $msg = 'Wrong e-mail or password';
                 }
            } else {
                $msg = 'Wrong e-mail or password';
            }
+           unset($_POST['email']);
          }
       ?>
    </div>
@@ -63,7 +65,3 @@ require '../hash.php';
    </div>
   </body>
 </html>
-
-<!-- $OpensslEncryption = new Openssl_EncryptDecrypt;
-$encrypted = $OpensslEncryption->encrypt($string, ENCRYPTION_KEY);
-$decrypted = $OpensslEncryption->decrypt($encrypted, ENCRYPTION_KEY); -->

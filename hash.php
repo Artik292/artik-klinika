@@ -52,10 +52,15 @@ class Openssl_EncryptDecrypt {
     }
 }
 
-define('ENCRYPTION_KEY', '__^%&Q@$&*!@#$%^&*^__');
-//$string = "This is the original string!";
+define('ENCRYPTION_KEY', '__AaBcWDIhdoiawdhw@#3r9930299a@)!($*)^__');
+// $string = "This is the original string!";
+// $str = "87654321";
+// $OpensslEncryption = new Openssl_EncryptDecrypt;
+// $encrypted = $OpensslEncryption->encrypt($str, ENCRYPTION_KEY);
+// $decrypted = $OpensslEncryption->decrypt($encrypted, ENCRYPTION_KEY);
+// echo $decrypted;
 
-
-//echo $encrypted;
+$a = hash('sha256', 'Наглый коричневый лисёнок прыгает вокруг ленивой собаки.');
+echo ($a);
 
 //echo $decrypted . " __________ " . $encrypted;
