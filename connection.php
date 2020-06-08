@@ -12,6 +12,8 @@ class Doctor extends \atk4\data\Model {
         $this->addField('surname');
         $this->addField('spec');
         $this->addField('hospital',['type'=>'text']);
+        $this->addField('email');
+        $this->addField('password',['type'=>'password']);
         $this->hasMany('record');
         $this->hasMany('research');
     }
@@ -23,7 +25,8 @@ class Patient extends \atk4\data\Model {
         parent::init();
         $this->addField('name');
         $this->addField('surname');
-        $this->addField('e-mail',['type'=>'email']);
+        $this->addField('email',['type'=>'email']);
+        $this->addField('password',['type'=>'password']);
         $this->addField('phone_number');
         $this->addField('address');
         $this->hasMany('record');
