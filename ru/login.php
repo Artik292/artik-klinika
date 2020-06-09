@@ -1,7 +1,7 @@
 <?php
 
 require '../connection.php';
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,15 +24,28 @@ require '../connection.php';
          $msg = '';
 
          if (isset($_POST['email']) && !empty($_POST['email'] && !empty($_POST['email']))) {
+
+           $stuff = new Stuff($db);
+           $stuff->tryLoadby("email",$_POST['email']);
+
            $doctor = new Doctor($db);
            $doctor->tryLoadby("email",$_POST['email']);
 
            $user = new Patient($db);
            $user->tryLoadby("email",$_POST['email']);
 
-           if (isset($doctor->id)) {
+           if (isset($stuff->id)) {
+                 if ($stuff['password'] == hash('sha256',$_POST['password'])) {
+                   $_SESSION['id'] = $stuff->id;
+                   $_SESSION['status'] = $stuff['status'];
+                   header('location: ../trans.php?tar=rec');
+                 } else {
+                   $msg = 'Wrong e-mail or password';
+                 }
+          } elseif (isset($doctor->id)) {
                 if ($doctor['password'] == hash('sha256',$_POST['password'])) {
                   $_SESSION['id'] = $doctor->id;
+                  $_SESSION['status'] = 'doctor';
                   header('location: main.php');
                 } else {
                   $msg = 'Wrong e-mail or password';
@@ -40,6 +53,7 @@ require '../connection.php';
            } elseif (isset($user->id)) {
                 if ($user['password'] == hash('sha256',$_POST['password'])) {
                   $_SESSION['id'] = $user->id;
+                  $_SESSION['status'] = 'patient';
                   header('location: main.php');
                 } else {
                   $msg = 'Wrong e-mail or password';
@@ -48,7 +62,7 @@ require '../connection.php';
                $msg = 'Wrong e-mail or password';
            }
            unset($_POST['email']);
-         }
+         }//*/
       ?>
    </div>
    <div class = "container">

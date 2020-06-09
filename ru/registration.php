@@ -4,7 +4,7 @@ require '../app.php';
 
 $app = new App();
 
-$pac = new Patient($db);
+$pac = new Stuff($db);
 
 $reg = new \atk4\data\Model(new \atk4\data\Persistence_Array($a));
 $reg->addField('name',['type'=>'string','caption'=>'Имя']);
@@ -49,11 +49,11 @@ $form->onSubmit(function($form) use($pac) {
       return $form->error('email', "Данная электронная почта уже используется.");
   }
 
-  $pac->tryLoadby('phone_number',$form->model['phone_number']);
+//  $pac->tryLoadby('phone_number',$form->model['phone_number']);
 
-  if(isset($pac->id)) {
-      return $form->error('phone_number', "Данный номер телефона уже используется.");
-  }
+  // if(isset($pac->id)) {
+  //     return $form->error('phone_number', "Данный номер телефона уже используется.");
+  // }
 
   switch ($form->model['password1']) {
     case 'password':
@@ -75,8 +75,9 @@ $form->onSubmit(function($form) use($pac) {
 	//$form->model->save();
   $pac['name'] = $form->model['name'];
   $pac['surname'] = $form->model['surname'];
-  $pac['phone_number'] = $form->model['phone_number'];
-  $pac['address'] = $form->model['address'];
+  //$pac['phone_number'] = $form->model['phone_number'];
+  //$pac['address'] = $form->model['address'];
+	$pac['status'] = 'admin';
   $pac['email'] = $form->model['email'];
   $pac['password'] = hash('sha256',$form->model['password1']);
   $pac->save();
