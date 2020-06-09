@@ -4,18 +4,28 @@ require 'vendor/autoload.php';
 
 $db = new \atk4\data\Persistence_SQL('mysql:host=127.0.0.1;dbname=ak19192;charset=utf8', 'root', '');
 
+class Spec extends \atk4\data\Model {
+    public $table = 'spec';
+    function init() {
+        parent::init();
+        $this->addField('title');
+        $this->addField('lang');
+        $this->hasMany('doctor');
+    }
+}
+
 class Doctor extends \atk4\data\Model {
     public $table = 'doctor';
     function init() {
         parent::init();
         $this->addField('name');
         $this->addField('surname');
-        $this->addField('spec');
         $this->addField('hospital',['type'=>'text']);
         $this->addField('email');
         $this->addField('password',['type'=>'password']);
         $this->hasMany('record');
         $this->hasMany('research');
+        $this->hasOne('spec_id',new Spec())->addTitle();
     }
 }
 
