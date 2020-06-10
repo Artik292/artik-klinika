@@ -9,6 +9,8 @@ if(($_SESSION['status'] != 'admin') && (($target == 'stu') || ($target == 'spe')
   header('location: logout.php');
 }
 
+$email = FALSE;
+
 if ($target == 'rec') {
   $model = new Record($db);
   $email = TRUE;
@@ -30,7 +32,7 @@ if ($target == 'rec') {
 $CRUD = $app->add(['CRUD']);
 $CRUD->setModel($model);
 if ($email) {
-    $CRUD->addQuickSearch(['name','surname','email']);
+    $CRUD->addQuickSearch(['name','email']);
 } else {
     $CRUD->addQuickSearch(['title']);
 }
