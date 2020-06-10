@@ -1,6 +1,12 @@
 {
+    "autoload": {
+        "psr-4": {
+            "":"src/"
+        }
+    },
   "require":{
-    "atk4/data": "*",
-    "atk4/ui": "*"
+    "atk4/ui": "*",
+        "twilio/sdk": "^5.15",
+        "h4cc/wkhtmltopdf-i386": "*"
   }
 }
